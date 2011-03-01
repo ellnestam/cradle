@@ -2,10 +2,21 @@ apply plugin: 'java'
 apply plugin: Swank
 apply plugin: "clojure"
 
+ buildscript {
+        repositories {
+            mavenRepo name: 'clojars', urls: 'http://clojars.org/repo'
+        }
+
+        dependencies {
+            classpath 'clojuresque:clojuresque:1.4.0'
+        }
+    }
+
+
 repositories {
     mavenCentral()
-	clojureReleasesRepo()
-	clojarsRepo()
+    clojureReleasesRepo()
+    clojarsRepo()
 }
 
 dependencies {
@@ -20,7 +31,7 @@ class Swank implements Plugin<Project> {
 			project.javaexec {
 				main = 'clojure.main'
 				classpath = execpath
-				args = ["-e", "\"(use 'swank.swank)(apply -main *command-line-args*)\""]
+				args = ["-e", "(use 'swank.swank)(apply -main *command-line-args*)"]
 			}
        }
 	}

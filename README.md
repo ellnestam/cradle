@@ -1,6 +1,6 @@
 # Cradle
 
-A minimal Clojure plugin for Gradle. At the moment it's just able to launch swank though.
+A minimal Clojure plugin for Gradle. At the moment it's just able to launch swank.
 
 ## Usage
 
@@ -9,8 +9,7 @@ gradle swank
 
 ## Installation
 
-- Download clojuresque.jar and put it in GRADLE_HOME/lib/plugins
-- Follow the instructions in 39.1 to use the plugin
+- You can just copy & paste the contents of the build.gradle to your own or follow the instructions in 39.1 here:
 
 http://www.gradle.org/0.9-rc-3/docs/userguide/custom_plugins.html
 
