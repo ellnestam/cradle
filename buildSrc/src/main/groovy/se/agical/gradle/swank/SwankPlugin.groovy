@@ -8,7 +8,7 @@ class SwankPlugin implements Plugin<Project> {
 		project.task('swank') {
 			description = 'Starts Clojures version of Swank.'
 			doLast {
-				execpath = project.configurations.runtime + project.configurations.compile + project.configurations.testCompile
+				execpath = project.configurations.runtime + project.configurations.testCompile
 				project.javaexec {
 					main = 'clojure.main'
 					classpath = execpath
