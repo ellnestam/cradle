@@ -26,13 +26,16 @@ dependencies {
 
 class Swank implements Plugin<Project> {
 	def void apply(Project project) {
-		project.task('swank') << {
-			execpath = project.configurations.runtime + project.configurations.compile + project.configurations.testCompile
-			project.javaexec {
-				main = 'clojure.main'
-				classpath = execpath
-				args = ["-e", "(use 'swank.swank)(apply -main *command-line-args*)"]
+		project.task('swank') {
+			description = 'Starts Clojures version of Swank.'
+			doLast {
+				execpath = project.configurations.runtime + project.configurations.compile + project.configurations.testCompile
+				project.javaexec {
+					main = 'clojure.main'
+					classpath = execpath
+					args = ["-e", "(use 'swank.swank)(apply -main *command-line-args*)"]
+				}
 			}
-       }
+       		}
 	}
 }
