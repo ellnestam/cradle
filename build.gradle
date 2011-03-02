@@ -1,17 +1,16 @@
 apply plugin: 'java'
-apply plugin: Swank
+apply plugin: 'swank'
 apply plugin: "clojure"
 
- buildscript {
-        repositories {
-            mavenRepo name: 'clojars', urls: 'http://clojars.org/repo'
+buildscript {
+	repositories {
+		mavenRepo name: 'clojars', urls: 'http://clojars.org/repo'
         }
 
-        dependencies {
-            classpath 'clojuresque:clojuresque:1.4.0'
-        }
-    }
-
+	dependencies {
+		classpath 'clojuresque:clojuresque:1.4.0'
+	}
+}
 
 repositories {
     mavenCentral()
@@ -22,20 +21,4 @@ repositories {
 dependencies {
 	runtime group: 'org.clojure', name: 'clojure', version: '1.2.0'
 	runtime group: 'swank-clojure', name: 'swank-clojure', version: '1.3.0-SNAPSHOT'
-}
-
-class Swank implements Plugin<Project> {
-	def void apply(Project project) {
-		project.task('swank') {
-			description = 'Starts Clojures version of Swank.'
-			doLast {
-				execpath = project.configurations.runtime + project.configurations.compile + project.configurations.testCompile
-				project.javaexec {
-					main = 'clojure.main'
-					classpath = execpath
-					args = ["-e", "(use 'swank.swank)(apply -main *command-line-args*)"]
-				}
-			}
-       		}
-	}
 }
