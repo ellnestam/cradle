@@ -1,8 +1,8 @@
-package se.agical.gradle.swank
+package se.agical.gradle
 
 import org.gradle.api.*
 
-class SwankPlugin implements Plugin<Project> {
+class CradlePlugin implements Plugin<Project> {
 
 	def void apply(Project project) {
 		project.task('swank') {
