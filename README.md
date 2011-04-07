@@ -6,12 +6,11 @@ A minimal Clojure plugin for Gradle. At the moment it's just able to launch swan
 
 gradle swank
 
-
 ## Installation
 
-- You can just copy & paste the contents of the build.gradle to your own or follow the instructions in 39.1 here:
-
-http://www.gradle.org/0.9-rc-3/docs/userguide/custom_plugins.html
+1. Install the latest version of gradle
+2. Download/fork cradle from GitHub and run gradle install which will install the dependency into your local maven repo
+3. Configure your gradle build to use cradle. Sample in ${src_root}/samples/helloworld
 
 ## License
 

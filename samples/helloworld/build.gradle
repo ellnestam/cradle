@@ -1,0 +1,25 @@
+apply plugin: 'cradle'
+apply plugin: 'clojure'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenRepo name: 'clojars', urls: 'http://clojars.org/repo'
+    }
+
+    dependencies {
+        classpath 'se.agical.gradle:cradle:0.1-SNAPSHOT'
+        classpath 'clojuresque:clojuresque:1.4.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+    clojureReleasesRepo()
+    clojarsRepo()
+}
+
+dependencies {
+	compile group: 'org.clojure', name: 'clojure', version: '1.2.0'
+	runtime group: 'swank-clojure', name: 'swank-clojure', version: '1.3.0-SNAPSHOT'
+}

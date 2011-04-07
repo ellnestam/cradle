@@ -1,0 +1,3 @@
+(ns core)
+
+(println "Hello")
